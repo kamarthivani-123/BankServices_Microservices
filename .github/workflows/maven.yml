@@ -28,3 +28,11 @@ jobs:
 
       - name: Build Transaction Service
         run: mvn -B package --file BankService-Microservices-main/transaction-service/pom.xml
+      - name: Build Account Docker Image
+        run: docker build -t account-service ./BankService-Microservices-main/account-service
+
+      - name: Build Auth Docker Image
+        run: docker build -t auth-service ./BankService-Microservices-main/auth-service
+
+      - name: Build Transaction Docker Image
+        run: docker build -t transaction-service ./BankService-Microservices-main/transaction-service
